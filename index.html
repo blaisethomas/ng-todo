@@ -9,15 +9,15 @@
 </head>
 <body>
     <h1>Todos App</h1>
-    <div ng-controller="TodosController as todosCtrl" >
-        <h3>You have {{todosCtrl.all.length}} todos left to do</h3>
-        <form id='add-todo' ng-submit="todosCtrl.add()">
-            <input type="text" placeholder="i need to ...." ng-model="todosCtrl.newTodo.task" />
+    <div ng-controller="TodosController" >
+        <h3>You have {{all.length}} todos left to do</h3>
+        <form id='add-todo' ng-submit="add()">
+            <input type="text" placeholder="i need to ...." ng-model="newTodo.task" />
         </form>
-        <p ng-if="todosCtrl.newTodo.task.length < 5">Your todo must have at least 5 characters {{ todosCtrl.newTodo.task}}</p>
-        <p ng-if="todosCtrl.newTodo.task.length >= 5">typing... {{ todosCtrl.newTodo.task}}</p>
+        <p ng-if="newTodo.task.length < 5">Your todo must have at least 5 characters {{ newTodo.task}}</p>
+        <p ng-if="newTodo.task.length >= 5">typing... {{ newTodo.task}}</p>
         
-        <div ng-repeat="todo in todosCtrl.all">
+        <div ng-repeat="todo in all">
             <input type="checkbox" ng-model="todo.done" /><span ng-class="{strike:todo.done, complicated:todo.task.length>15 }">{{todo.task}}</span>
         </div>
            
